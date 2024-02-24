@@ -1,0 +1,918 @@
+13|01|2024
+                                 ***FIRST TASK OF THIS COURSE IS  ALL REQUIRED SETUP INSTALLED HERE.**
+FIRST TASK TO REVISIVE ALL CONCEPT WHICH IN JAVA COURSE LET`S SEE :--
+Que.WAP to accept number from user & find its special or not as per given rule.
+     --> 22==2(Split)2==2(Addition)2==4==16(Square of 4)
+	   22===16
+	  Here,This logic is implement in the Code 
+	Program:--
+	import java.util.Scanner;
+	public class SpecialNo
+	{
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER THE NUMBER");
+		int a=sc.nextInt();
+		System.out.println("THE NUMBER\n "+a);
+        	String s1=a+"";
+		int length=s1.length();
+		if(length%2==1)//odd
+		{
+			System.out.println("INVALID NUMBER");
+		}
+		else
+		{
+			String p1=s1.substring(0,length/2);
+			String p2=s1.substring(length/2,length);
+			int y= Integer.parseInt(p1);
+			int b= Integer.parseInt(p2);
+		    	int add=y+b;
+		     	add=add*add;
+			if(add==a)
+			{
+				System.out.println("special Number");
+			}
+			else
+			{
+				System.out.println("not special number");
+			}
+		  }
+	          }
+                  }
+_________________________________________________________________________________________________________________________________________________
+Que.WAP to accept a no. & generate number which is sorted digits of given no. & diplay between them.
+--->  
+Program :---
+import java.util.*;
+public class number2
+{
+	public static void main(String args[])
+	{
+		while(true)
+		{
+		System.out.println("ENTER THE NUMBER");
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		System.out.println("NUMBER IS--"+n);
+		String s1=n+"";
+		int length=s1.length();
+		int a[]=new int[length];
+		int i=0,temp=n;
+        while(n>0)
+        {
+        	int digit=n%10;
+        	a[i]=digit;
+        	i++;
+        	n=n/10;
+        }
+        Arrays.sort(a);
+        int n2=0;
+        for(int j=0;j<a.length;j++)
+        {
+        	n2=(n2*10)+a[j];
+        }
+        int differ=temp-n2;
+        System.out.println("ans="+differ);
+		}
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que. WAP for Armstrong Number.
+--->	
+Program :---
+import java.util.Scanner;
+public class number
+{
+	public static void main(String args[])
+	{
+		 //while(true)
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER THE NUMBER");
+		int a=sc.nextInt();
+		System.out.println("THE NUMBER\n "+a);
+        int sum=0,temp=a;
+        String s1=a+"";
+        int length=s1.length();
+        while(a>0)
+      // for(int i=0;i<a;i++)
+        {
+        	int d=a%10;
+        	sum+=Math.pow(d,length);//let's remember 
+        	/*Math.min(10,20)=10
+        	 * Math.max(10,20)=20
+        	 * Math.sqrt(25)=5
+        	 * Math.pow(2,3)=2*2*2=8//cube
+        	 * Math.round(4.3)=4
+        	 * Math.abs(-7)=7
+        	 * Math.exp(1)=1
+        	 */
+        	a=a/10;
+        }
+        if(sum==temp)
+        {
+        	System.out.println("ARMSTRONG NUMBER");
+        }
+        else
+        {
+        	System.out.println("NOT ARMSTRONG");
+        }
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+20|01|2024
+                                                   *FRONT-END DESIGN*
+1.Frame Class:--
+  1)Each Software having its own frame consist of related components to provide services.
+  2)Frame having own property like width,height,visibility,resizing corner,location,etc.
+  * Frame class is divide into 3 parts :--
+     a)Applets
+     b)AWT
+     c)Swing
+Que.WAP to construct the frame using Applets.
+---> 
+program :--
+	import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.Toolkit;
+public class appletframe extends Applet
+{
+	 public void init()
+	{
+		Frame f1=new Frame();
+		f1.setTitle("sample");
+		f1.setSize(500,400);
+		f1.setLocation(100,100);
+		f1.setBackground(Color.ORANGE);
+		f1.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\vedan\\Downloads\\raphael-renter-raphi_rawr-csae9W8JAsw-unsplash.jpg"));
+		f1.setUndecorated(true);
+		f1.setCursor(9);
+		f1.setVisible(true);
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que.WAP to construct the frame using AWT.
+---> 
+Program:--
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Toolkit;
+public class awtframe
+{
+	public static void main(String[] args)
+	{
+			{  
+				Frame f1=new Frame();
+				f1.setTitle("sample");
+				f1.setSize(500,400);
+				Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
+				int x=(d.width-500)/2;
+				int y=(d.height-400)/2;
+			   //	int x=(d.width-500)/3;
+				//int y=(d.height-400)/3;
+				f1.setLocation(x,y);
+				f1.setBackground(Color.ORANGE);
+				//f1.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\vedan\\Downloads\\raphael-renter-raphi_rawr-csae9W8JAsw-unsplash.jpg"));
+				f1.setUndecorated(true);
+				f1.setCursor(9);
+				f1.setVisible(true);
+			}
+
+	}
+
+}
+_________________________________________________________________________________________________________________________________________________
+Que..WAP to construct the frame using SWING.
+---> 
+Program:--
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+public class swingFrame 
+{
+	public static void main(String[] args) 
+	{
+			{  
+				JFrame f1=new JFrame();
+				f1.setTitle("sample");
+				f1.setSize(500,400);
+				Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
+				int x=(d.width-500)/2;
+				int y=(d.height-400)/2;
+			   //	int x=(d.width-500)/3;
+				//int y=(d.height-400)/3;
+				f1.setLocation(x,y);
+				f1.getContentPane().setBackground(Color.ORANGE);
+				//f1.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\vedan\\Downloads\\raphael-renter-raphi_rawr-csae9W8JAsw-unsplash.jpg"));
+				f1.setUndecorated(true);
+				f1.setCursor(9);
+				f1.setVisible(true);
+			}
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+21|01|2024
+Dimension Class :--
+	It Is Used To Provide Width & Height of display screen in terms of pixel.
+SYNTAX:--
+	Dimension d=Toolkit.getDefaultToolkit.getScreenSize();
+	System.out.println(d.height);
+	System.out.println(d.width);
+PROGRAM :--
+import java.awt.Dimension;
+import java.awt.Toolkit;
+class dimensionClass
+{
+	public static void main(String[] args)
+{
+	Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
+	System.out.println(d.height);
+	System.out.println(d.width);
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que.WAP to Display current frame at the centre of the screen.
+--->
+Program :--
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Toolkit;
+public class centerlocation extends Applet
+{
+		 public void init()
+		{  
+			Frame f1=new Frame();
+			f1.setTitle("sample");
+			f1.setSize(500,400);
+			Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
+			int x=(d.width-500)/2;
+			int y=(d.height-400)/2;
+		   //	int x=(d.width-500)/3;
+			//int y=(d.height-400)/3;
+			f1.setLocation(x,y);
+			f1.setBackground(Color.ORANGE);
+			//f1.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\vedan\\Downloads\\raphael-renter-raphi_rawr-csae9W8JAsw-unsplash.jpg"));
+			f1.setUndecorated(true);
+			f1.setCursor(9);
+			f1.setVisible(true);
+       }
+}
+_________________________________________________________________________________________________________________________________________________
+Closing Event Of Frame:--
+  1.Bydefault Close Event Of Applets ,AWT Frame Is Disable & Swing Frame Is Unable Without Notification.
+  2.To Handle A close us requird following components
+	a.WindowListener
+	   b.WindowAdapter
+              c.windowClosing
+                d.WindowEvent 
+Que.WAP to construct the FrameCloseEvent.
+---> 
+Program :--
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import javax.swing.JFrame;
+public class FrameCloseEvent 
+{
+	public static void main(String[] args) 
+	{  
+				//final Frame f1=new Frame();
+		       		final JFrame f1=new JFrame();
+				f1.setTitle("sample");
+				f1.setSize(500,400);
+				Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
+				int x=(d.width-500)/2;
+				int y=(d.height-400)/2;
+			,,      //int x=(d.width-500)/3;
+				//int y=(d.height-400)/3;
+				f1.setLocation(x,y);
+				f1.setBackground(Color.ORANGE);
+				//f1.getContentPane().setBackground(Color.ORANGE);
+				//f1.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\vedan\\Downloads\\raphael-renter-raphi_rawr-csae9W8JAsw-unsplash.jpg"));
+				//f1.setUndecorated(true);
+				f1.setCursor(9);
+				f1.setResizable(false);
+				f1.setVisible(true);
+				f1.addWindowListener(new WindowAdapter()
+				{
+					public void windowClosing(WindowEvent e)
+					{
+						f1.dispose();
+					}
+				});
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que.WAP TO Construct SwingFrame.
+--->
+Program :--
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+public class swingFrame 
+{
+	public static void main(String[] args) 
+	{
+			{  
+				JFrame f1=new JFrame();
+				f1.setTitle("sample");
+				f1.setSize(500,400);
+				Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
+				int x=(d.width-500)/2;
+				int y=(d.height-400)/2;
+			   //	int x=(d.width-500)/3;
+				//int y=(d.height-400)/3;
+				f1.setLocation(x,y);
+				f1.getContentPane().setBackground(Color.ORANGE);
+				//f1.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\vedan\\Downloads\\raphael-renter-raphi_rawr-csae9W8JAsw-unsplash.jpg"));
+				f1.setUndecorated(true);
+				f1.setCursor(9);
+				f1.setVisible(true);
+			}
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que.WAP For SwingCenter Using Frame.
+----> 
+Program :--
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+public class swingFrame 
+{
+	public static void main(String[] args) 
+	{
+			{  
+				JFrame f1=new JFrame();
+				f1.setTitle("sample");
+				f1.setSize(500,400);
+				Dimension d=Toolkit.getDefaultToolkit().getScreenSize();
+				int x=(d.width-500)/2;
+				int y=(d.height-400)/2;
+			   //	int x=(d.width-500)/3;
+				//int y=(d.height-400)/3;
+				f1.setLocation(x,y);
+				f1.getContentPane().setBackground(Color.ORANGE);
+				//f1.setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\vedan\\Downloads\\raphael-renter-raphi_rawr-csae9W8JAsw-unsplash.jpg"));
+				f1.setUndecorated(true);
+				f1.setCursor(9);
+				f1.setVisible(true);
+			}
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que.WAP a program to generate OTP 4 Digits.
+--->
+Program :--
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Toolkit;
+import javax.swing.JFrame;
+public class SwingCenter
+{
+	public static void main(String[] args) 
+	{
+			{  
+				JFrame f1=new JFrame();
+				f1.setTitle("sample");
+				f1.setSize(800, 400);
+				f1.getContentPane().setBackground(Color.ORANGE);
+				f1.setUndecorated(false);
+				f1.setCursor(9);
+				f1.setLocationRelativeTo(null);
+				f1.setDefaultCloseOperation(1);
+				//f1.setDefaultCloseOperation(0);
+				/*f1.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);*/
+				//f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				f1.setVisible(true);
+			}
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que.WAP For MultiColor using Frame.
+--->
+Program :--
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.Toolkit;
+import java.util.Random;
+import javax.swing.JFrame;
+public class multicolor
+{
+	@SuppressWarnings("deprecation")
+	public static void main(String[] args)throws Exception 
+	{
+			{  
+				JFrame f1=new JFrame();
+				f1.setTitle("sample");
+				f1.setSize(800, 400);
+				f1.setUndecorated(false);
+				f1.setCursor(9);
+				f1.setLocationRelativeTo(null);
+				f1.setDefaultCloseOperation(1);
+				//f1.setDefaultCloseOperation(0);
+				/*f1.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);*/
+				//f1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+				Random r=new Random();
+				for(int i=0;i<=1000;i++)
+				{
+					int x=r.nextInt(255);
+					int y=r.nextInt(255);
+					int z=r.nextInt(255);
+					Thread.sleep(200);
+					f1.getContentPane().setBackground(new Color(x,y,z));
+					i++;
+					f1.setVisible(true);
+				}
+		}
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+03|02|2024
+MOUSE EVENT :---
+MOUSE EVENT CONSIST OF FOLLOWING ACTIVITES :--
+1.CLICK
+2.MOVE
+3.DRAG
+4.SCROLL
+5.PRESS
+6.RELEASE
+7.ENETR
+8.EXIT
+All The Above Properties or Activites Provided By Following Components :--
+I.MouseAdapter Class
+II.MouseMotionAdapter Class
+III.MouseListener Interface
+IV.MouseMotionListener Interface
+NOTE :-- MOTION COMPONENTS CONSIST OF MOVE & DRAG ONLY.....
+Que.WAP to display mouse events in the words.
+--->
+Program :--
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+public class allmouseevent extends Applet implements MouseListener,MouseMotionListener{
+		String msg="";
+		int X=1000,Y=1150;
+		public void init()
+		{
+			addMouseListener(this);
+			addMouseMotionListener(this);
+		}
+	public void mouseClicked(MouseEvent e) {
+		msg="kar ki click";
+		repaint();
+	}
+	public void mousePressed(MouseEvent e) {
+		msg="zale click";
+		repaint();
+	}
+	public void mouseReleased(MouseEvent e) {
+		msg="sod aata";
+		repaint();
+	}
+	public void mouseEntered(MouseEvent e) {
+		msg="please enter";
+		repaint();
+	}
+	public void mouseExited(MouseEvent e) {
+		msg="kar close";
+		repaint();
+	}
+	public void mouseDragged(MouseEvent e) {
+		msg="drag kara ki shet";
+		repaint();	
+	}
+	public void mouseMoved(MouseEvent e) {
+		msg="move kara shet";
+		repaint();
+	}
+	public void paint(Graphics g)
+	{
+		g.drawString(msg,110,130);
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que.WAP a program to current co-ordinate of the mouse on the Viewer.
+--->
+PROGRAM :--
+import java.applet.Applet;
+import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
+public class coordinate extends Applet implements MouseMotionListener {
+ String msg="";
+ int x=0,y=0;
+ public void init()
+ {
+	 addMouseMotionListener(this);
+ }
+ public void mouseMoved(MouseEvent e) {
+		x=e.getX();
+		y=e.getY();
+		repaint();
+	}
+ public void mouseDragged(MouseEvent e){}
+	public void paint(Graphics g)
+	{
+		g.drawString(x+""+y,x,y);
+	}
+} 
+_________________________________________________________________________________________________________________________________________________
+MOUSEADAPTER CLASS :--
+1.mouseClick(MouseEvent e)
+2.mouseDrag(MouseEvent e)
+3.mouseEnter(MouseEvent e)
+4.mouseExit(MouseEvent e)
+5.mouseMove(MouseEvent e)
+6.mousePress(MouseEvent e)
+7.mouseRelease(MouseEvent e)
+MOUSEMOTIONADPTER CLASS :--
+I.mouseDrag(MouseEvent e)
+II.mouseMove(MouseEvent e)
+MOUSELISTENER INTERFACE :--
+1.mouseClick(MouseEvent e)
+2.mouseEnter(MouseEvent e)
+3.mouseExit(MouseEvent e)
+4.mousePress(MouseEvent e)
+5.mouseRelease(MouseEvent e)
+MOUSEMOTIONLISTENER INTERFACE :--
+I.mouseDrag(MouseEvent e)
+II.mouseMove(MouseEvent e)
+Que.WAP to change Background color by enter & exist event.
+--> 
+PROGRAM :--
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+public class brcolor extends Applet implements MouseListener
+{
+	 // Frame f1;
+	  public void init()
+	  {
+		  /*f1=new Frame();
+		  f1.setSize(500,500);
+		  f1.setVisible(true);
+		  f1.addMouseListener(this);*/
+		 addMouseListener(this);
+	  }
+	public void mouseEntered(MouseEvent e) 
+	{
+		setBackground(Color.RED);
+		//f1.setBackground(Color.RED);
+	}
+	public void mouseExited(MouseEvent e)
+	{
+		setBackground(Color.GREEN);
+		//f1.setBackground(Color.RED);
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que.WAP to Draw a Line.
+--> 
+PROGRAM :--
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+public class linedraw extends Applet implements MouseListener,MouseMotionListener
+{
+	int x1,y1,x2,y2;
+	public void init()
+	{
+		addMouseListener(this);
+		addMouseMotionListener(this);
+	}
+	public void mousePressed(MouseEvent e)
+	{
+		x1=e.getX();
+		y1=e.getY();
+	}
+	public void mouseDragged(MouseEvent e)
+	{
+		x2=e.getX();
+		y2=e.getY();
+		repaint();
+	}
+	public void paint(Graphics g)
+	{
+		g.draw3DRect(x1, y1, 300, 450, true);
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+Que.WAP to create  'N' Frame & change its Background Randomly.
+--->
+PROGRAM :--
+STEP--1 :-
+import java.awt.Frame;
+import java.util.Scanner;
+
+public class multiframecolor
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("ENTER HOW MANY FRAME :--");
+		int n=sc.nextInt();
+		MyFrame f[]=new MyFrame[n];
+		for(int i=0;i<n;i++)
+		{
+			f[i]=new MyFrame(i);
+			f[i].setSize(550,450);
+			f[i].setLocation(100*i,100*i);
+			f[i].setAlwaysOnTop(true);
+			f[i].setVisible(true);
+		}
+	}
+
+}
+STEP--2 :-
+import java.awt.Color;
+import java.awt.Frame;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Random;
+public class MyFrame extends Frame implements MouseListener
+{
+		Random rd=new Random();
+		public MyFrame(int i)
+	 {
+		addMouseListener(this);
+	}
+	public void mouseEntered(MouseEvent e)
+	 {
+		// TODO Auto-generated method stub
+		int r=rd.nextInt(256);
+		int g=rd.nextInt(256);
+		int b=rd.nextInt(256);
+		setBackground(new Color(r,g,b));
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+10|02|2024
+ Button Class
+1.)It is an active components which perform a certain task on the click event.
+2.)Button event are managed by 2 cmponents i.e.
+	a. ActionListner
+		b.ActionPerformed
+			Here,ActionListner are used to moniter activity on the button i.e. it Identify weather button is clicked or not.
+3.)Action perform executed task as per requirement i.e.
+	a.Object getSource():--
+						This method is used to return object name of a button on which click event occurs.
+	b.String getActionCommand():--
+						This method return label on the the Button on which clicked event occur.
+Que.WAP TO CONSTRUCT 3 BUTTON RED,GREEN,BLUE & CHANGE BACKGROUND OF APPLETS ON CLICK EVENT OF BUTTON. 
+--->
+PROGRAM :--
+import java.applet.Applet;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+public class appletcolorchange extends Applet implements ActionListener
+{
+	Button r,g,b; static int flag=0;
+	public void init()
+	{
+		r=new Button("Red");
+		g=new Button("Green");
+		b=new Button("Blue");
+		r.addActionListener(this);
+		g.addActionListener(this);
+		b.addActionListener(this);
+		add(r);
+		add(g);
+		add(b);
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		String s1=e.getActionCommand();
+		System.out.println(flag);
+		/*if(s1.equals("Red"))
+		{
+			setBackground((Color.red));
+		System.out.println("red clicked");
+		}
+		else
+			if(s1.equals("Green"))
+				setBackground((Color.green));
+			else
+				if(s1.equals("Blue"))
+					setBackground((Color.blue));
+				else
+					System.out.println("button not pressed");*/
+		Object obj = e.getSource();
+		/*clicked && unclicked
+		 * if(obj==r && flag==0)
+			{
+			r.setBackground((Color.red));
+			flag=1;
+			}
+		else
+		if (obj==r && flag==1)
+		{
+		r.setBackground((Color.gray));
+		flag=0;
+		}*/
+		if(obj==r)
+		{
+			r.setBackground((Color.RED));
+		}
+		else
+		if(obj==b)
+		{
+			b.setBackground((Color.blue));
+		}
+		else
+		if(obj==g)
+		{
+			g.setBackground((Color.green));	
+		}	
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+17|02|2024
+Runtime class:
+1.it is provided by util package used to execute application on the action performed by user.
+Que.WAP program for Runtime Class.
+--->
+Program :--
+import java.applet.Applet;
+import java.awt.Button;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+public class ApprunButton extends Applet implements ActionListener
+{
+ Button b1,b2;
+ Runtime rn= Runtime.getRuntime();
+ public void init()
+ {
+ b1=new Button("Paint");
+ b1.addActionListener(this);
+ add(b1);
+ b2=new Button("Notepad");
+ b2.addActionListener(this);
+ add(b2);
+ }
+ public void actionPerformed(ActionEvent e)
+	{
+	Object obj=e.getSource();
+	if(obj==b1)
+	{
+		System.out.println("PAINT IS CLICK");
+		try {
+			rn.exec("mspaint.exe");
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	else
+	{
+		System.out.println("NOTEPAD IS CLICKED");
+		try {
+			rn.exec("notepad.exe");
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	}
+}
+_________________________________________________________________________________________________________________________________________________
+24|02|2024
+Que.WAP for to create Button-Shape Class.
+--->
+Program :--
+import java.applet.Applet;
+import java.awt.Button;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
+public class buttonshape extends Applet implements ActionListener,MouseListener,MouseMotionListener {
+	int x1=0,y1=0,x2=0,y2=0;
+	Button b1,b2,b3;
+	Button bR,bG,bB;
+	static int flag=0;
+	String name="";
+	String colour="";
+	
+	public void init()
+	{
+		b1=new Button("Rect");
+		b2=new Button("Circle");
+		b3=new Button("Line");
+		
+		bR=new Button("Red");
+		bR.addActionListener(this);
+		bG=new Button("Green");
+		bG.addActionListener(this);
+		bB=new Button("Blue");
+		bB.addActionListener(this);
+
+		b1.addActionListener(this);
+		b2.addActionListener(this);
+		b3.addActionListener(this);
+		add(b1);
+		add(b2);
+		add(b3);
+		add(bR);
+		add(bG);
+		add(bB);
+		
+		addMouseListener(this);
+		addMouseMotionListener(this);	
+	}
+	public void actionPerformed(ActionEvent e) {
+	Object obj=e.getSource();
+	if(obj==b1)
+		name="Rect";
+	else if(obj==b2)
+		name="Circle";
+	else if(obj==b3)
+		name="Line";
+	else if(obj==bR)
+		colour="red";
+	else if(obj==bG)
+		colour="green";
+	else if(obj==bB)
+		colour="blue";
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		
+		
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		x1=e.getX();
+		y1=e.getY();
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		x2=e.getX();
+		y2=e.getY();
+		repaint();		
+		
+	}
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+public void paint(Graphics g)
+{
+	if(colour.equals("red"))
+		g.setColor(Color.red);
+	if(colour.equals("green"))
+		g.setColor(Color.green);
+	if(colour.equals("blue"))
+		g.setColor(Color.blue);
+	if(name.equals("Rect"))
+		g.fillRect(x1, y1, x1, y2);
+	if(name.equals("Circle"))
+		g.fillOval(x1, y1, x2, y2);
+	if(name.equals("Line"))
+		g.drawLine(x1, y1, x2, y2);
+}
+}
+_________________________________________________________________________________________________________________________________________________
